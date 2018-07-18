@@ -1,35 +1,26 @@
-# shuji (周氏)
+# Reverse.js
 
 > Reverse engineering JavaScript and CSS sources from sourcemaps
 
-[![Build Status](https://travis-ci.org/paazmaya/shuji.svg?branch=master)](https://travis-ci.org/paazmaya/shuji)
-[![Windows build status](https://ci.appveyor.com/api/projects/status/pfplexeaehjvwel3/branch/master?svg=true)](https://ci.appveyor.com/project/paazmaya/shuji/branch/master)
-[![codecov](https://codecov.io/gh/paazmaya/shuji/branch/master/graph/badge.svg)](https://codecov.io/gh/paazmaya/shuji)
-[![Dependency Status](https://gemnasium.com/paazmaya/shuji.svg)](https://gemnasium.com/paazmaya/shuji)
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fpaazmaya%2Fshuji.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fpaazmaya%2Fshuji?ref=badge_shield)
-
-## Background for the name
-
-The name of the project is for honouring the legacy of a certain master from the Ryukyu archipelago who contributed to the martial arts that we today know as **karate** and **ryukyu kobujutsu**.
 
 ## Getting started
 
-Install the `shuji` command line utility globally with [npm](https://www.npmjs.com/).
+Install the `reverse.js` command line utility globally with [npm](https://www.npmjs.com/).
 Elevated privileges might be needed via `sudo`, depending on the platform. In most cases just:
 
 ```sh
-npm install --global shuji
+npm install --global reverse
 ```
 
 Please note that the minimum supported version of [Node.js](https://nodejs.org/en/) is `8.11.1`, which is [the active Long Term Support (LTS) version](https://github.com/nodejs/Release#release-schedule).
 
 ## Command line options
 
-The output of `shuji --help` pretty much covers all the options:
+The output of `reverse --help` pretty much covers all the options:
 
 ```sh
-shuji - Reverse engineering JavaScript and CSS sources from sourcemaps
-Usage: shuji [options] <file|directory>
+reverse - Reverse engineering JavaScript and CSS sources from sourcemaps
+Usage: reverse [options] <file|directory>
 
   -h, --help               Help and usage instructions
   -V, --version            Version number
@@ -77,27 +68,9 @@ There should be no errors appearing after any JavaScript file changes.
 
 Please note that any features or changed will not be merged without working unit tests.
 
-## Version history
-
-* `v0.4.0` (2017-08-10)
-  - Minimum Node.js version lifted from `4.2.0` to `6.9.5`
-  - Configure code coverage reporting to correctly validate unit test coverage, via `--exclude` configuration
-  - Dependencies are once again up to date :neckbeard:
-* `v0.3.1` (2016-08-08)
-  - Test also in Windows, at [AppVeyor](https://ci.appveyor.com/project/paazmaya/shuji)
-* `v0.3.0` (2016-07-07)
-  - Start using shared ESLint configuration #1
-  - Test against Node.js v6
-* `v0.2.0` (2016-03-14)
-  - Do not overwrite existing files, instead skip them
-* `v0.1.0` (2016-02-12)
-  - Initial release which can make it happen
-
 ## License
 
 Copyright (c) [Juga Paazmaya](https://paazmaya.fi) <paazmaya@yahoo.com>
+Copyright (c) [David Kevork](https://davidkevork.me) <david@davidkevork.me>
 
 Licensed under [the MIT license](./LICENSE).
-
-
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fpaazmaya%2Fshuji.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fpaazmaya%2Fshuji?ref=badge_large)
