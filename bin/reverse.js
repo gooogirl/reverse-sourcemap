@@ -1,23 +1,22 @@
 #!/usr/bin/env node
 
 /**
- * shuji (周氏)
- * https://github.com/paazmaya/shuji
+ * reverse.js
+ * https://github.com/davidkevork/reverse
  *
  * Reverse engineering JavaScript and CSS sources from sourcemaps
  *
  * Copyright (c) Juga Paazmaya <paazmaya@yahoo.com> (https://paazmaya.fi)
+ * Copyright (c) David Kevork <david@davidkevork.me> (https://davidkevork.me)
  * Licensed under the MIT license
  */
 
 'use strict';
 
 const path = require('path');
-
-const optionator = require('optionator'),
-  fs = require('fs-extra');
-
-const shuji = require('../index');
+const optionator = require('optionator');
+const fs = require('fs-extra');
+const reverse = require('../index');
 
 let pkg;
 
@@ -91,9 +90,7 @@ catch (error) {
 }
 
 if (opts.version) {
-  console.log((opts.verbose ?
-    pkg.name + ' v' :
-    '') + pkg.version);
+  console.log((opts.verbose ? pkg.name + ' v' : '') + pkg.version);
   process.exit();
 }
 
@@ -162,13 +159,9 @@ fileList.forEach((filepath) => {
     console.log(`Processing file ${filepath}`);
   }
 
-  const input = fs.readFileSync(filepath, 'utf8'),
-    outdir = path.join(outputDir, path.dirname(filepath)),
-    output = shuji(input, {
-      verbose: typeof opts.verbose === 'boolean' ?
-        opts.verbose :
-        false
-    });
+  const input = fs.readFileSync(filepath, 'utf8');
+  const outdir = path.join(outputDir, path.dirname(filepath));
+  const output = reverse(input, { verbose: typeof opts.verbose === 'boolean' ? opts.verbose : false });
 
   fs.ensureDirSync(outdir);
 
@@ -181,10 +174,12 @@ fileList.forEach((filepath) => {
 
     if (fs.existsSync(outfile)) {
       console.error('File existed, skipping!');
-    }
-    else {
+    } else {
+      let dir = outfile.substr(0, outfile.lastIndexOf("\\"));
+      fs.ensureDirSync(dir);
       fs.writeFileSync(outfile, output[item], 'utf8');
     }
+
   });
 
 });
