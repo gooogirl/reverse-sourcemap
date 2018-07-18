@@ -1,17 +1,17 @@
 /**
- * shuji (周氏)
- * https://github.com/paazmaya/shuji
+ * reverse.js
+ * https://github.com/davidkevork/reverse
  *
  * Reverse engineering JavaScript and CSS sources from sourcemaps
  *
  * Copyright (c) Juga Paazmaya <paazmaya@yahoo.com> (https://paazmaya.fi)
+ * Copyright (c) David Kevork <david@davidkevork.me> (https://davidkevork.me)
  * Licensed under the MIT license
  */
 
 'use strict';
 
 const path = require('path');
-
 const sourceMap = require('source-map');
 
 /**
@@ -33,7 +33,7 @@ module.exports = (input, options) => {
 
     consumer.sources.forEach((source) => {
       const contents = consumer.sourceContentFor(source);
-      map[path.basename(source)] = contents;
+      map[path.normalize(source).replace(/^(\.\.[/\\])+/, '').replace(/(\?).*$/, '').replace(/[&#,+()$~%'":*?<>{}]/g, '').replace(' ', '.')] = contents;
     });
   }
   else if (options.verbose) {

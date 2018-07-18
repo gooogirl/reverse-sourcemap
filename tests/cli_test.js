@@ -1,17 +1,18 @@
 /**
- * shuji (周氏)
- * https://github.com/paazmaya/shuji
+ * reverse.js
+ * https://github.com/davidkevork/reverse
  *
  * Reverse engineering JavaScript and CSS sources from sourcemaps
  *
  * Copyright (c) Juga Paazmaya <paazmaya@yahoo.com> (https://paazmaya.fi)
+ * Copyright (c) David Kevork <david@davidkevork.me> (https://davidkevork.me)
  * Licensed under the MIT license
  */
 'use strict';
 
-const fs = require('fs'),
-  path = require('path'),
-  execFile = require('child_process').execFile;
+const fs = require('fs');
+const path = require('path');
+const execFile = require('child_process').execFile;
 
 const tape = require('tape');
 
