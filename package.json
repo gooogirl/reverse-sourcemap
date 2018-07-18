@@ -1,23 +1,23 @@
 {
-  "name": "reverse.js",
+  "name": "reverse-sourcemap",
   "version": "1.0.0",
   "description": "Reverse engineering JavaScript and CSS sources from sourcemaps",
   "main": "index.js",
   "bin": "bin/reverse.js",
   "scripts": {
-    "lint": "eslint index.js bin/reverse.js",
+    "lint": "eslint index.js bin/reverse-sourcemap",
     "test": "nyc --exclude tests tape tests/*_test.js && rm -rf tmp",
     "coverage": "nyc --exclude tests report --reporter=text-lcov > coverage.lcov && codecov"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/davidkevork/reverse.git"
+    "url": "git+ssh://git@github.com/davidkevork/reverse-sourcemap.git"
   },
   "keywords": [
     "sourcemap",
     "reverse",
     "engineering",
-    "reverse.js"
+    "reverse-sourcemap"
   ],
   "files": [
     "bin",
@@ -31,12 +31,12 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/davidkevork/reverse/issues"
+    "url": "https://github.com/davidkevork/reverse-sourcemap/issues"
   },
   "engines": {
     "node": ">=8.11.1"
   },
-  "homepage": "https://github.com/davidkevork/reverse#readme",
+  "homepage": "https://github.com/davidkevork/reverse-sourcemap#readme",
   "dependencies": {
     "fs-extra": "^5.0.0",
     "optionator": "^0.8.2",

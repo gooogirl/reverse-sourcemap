@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 /**
- * reverse.js
- * https://github.com/davidkevork/reverse
+ * rreverse-sourcemap
+ * https://github.com/davidkevork/reverse-sourcemap
  *
  * Reverse engineering JavaScript and CSS sources from sourcemaps
  *

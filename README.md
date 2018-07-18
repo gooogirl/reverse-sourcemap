@@ -1,26 +1,26 @@
-# Reverse.js
+# reverse-sourcemap
 
 > Reverse engineering JavaScript and CSS sources from sourcemaps
 
 
 ## Getting started
 
-Install the `reverse.js` command line utility globally with [npm](https://www.npmjs.com/).
+Install the `reverse-sourcemap` command line utility globally with [npm](https://www.npmjs.com/).
 Elevated privileges might be needed via `sudo`, depending on the platform. In most cases just:
 
 ```sh
-npm install --global reverse
+npm install --global reverse-sourcemap
 ```
 
 Please note that the minimum supported version of [Node.js](https://nodejs.org/en/) is `8.11.1`, which is [the active Long Term Support (LTS) version](https://github.com/nodejs/Release#release-schedule).
 
 ## Command line options
 
-The output of `reverse --help` pretty much covers all the options:
+The output of `reverse-sourcemap --help` pretty much covers all the options:
 
 ```sh
-reverse - Reverse engineering JavaScript and CSS sources from sourcemaps
-Usage: reverse [options] <file|directory>
+reverse-sourcemap - Reverse engineering JavaScript and CSS sources from sourcemaps
+Usage: reverse-sourcemap [options] <file|directory>
 
   -h, --help               Help and usage instructions
   -V, --version            Version number

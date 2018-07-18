@@ -1,6 +1,6 @@
 /**
- * reverse.js
- * https://github.com/davidkevork/reverse
+ * reverse-sourcemap
+ * https://github.com/davidkevork/reverse-sourcemap
  *
  * Reverse engineering JavaScript and CSS sources from sourcemaps
  *
