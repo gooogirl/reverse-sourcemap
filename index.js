@@ -24,21 +24,23 @@ module.exports = (input, options) => {
 
   const consumer = new sourceMap.SourceMapConsumer(input);
 
-  const map = {};
-
-  if (consumer.hasContentsOfAllSources()) {
-    if (options.verbose) {
-      console.log('All sources were included in the sourcemap');
+  return consumer.then((response) => {
+    let map = {};
+    if (response.hasContentsOfAllSources()) {
+      if (options.verbose) {
+        console.log('All sources were included in the sourcemap');
+      }
+  
+      response.sources.forEach((source) => {
+        const contents = response.sourceContentFor(source);
+        map[path.normalize(source).replace(/^(\.\.[/\\])+/, '').replace(/[&#,+()?$~%'":*?<>{}]/g, '').replace(' ', '.')] = contents;
+      });
+    } else if (options.verbose) {
+      console.log('Not all sources were included in the sourcemap');
     }
-
-    consumer.sources.forEach((source) => {
-      const contents = consumer.sourceContentFor(source);
-      map[path.normalize(source).replace(/^(\.\.[/\\])+/, '').replace(/(\?).*$/, '').replace(/[&#,+()$~%'":*?<>{}]/g, '').replace(' ', '.')] = contents;
-    });
-  }
-  else if (options.verbose) {
-    console.log('Not all sources were included in the sourcemap');
-  }
-
-  return map;
+    return map;
+  }).catch((e) => {
+    console.log(e);
+    return {};
+  });
 };
