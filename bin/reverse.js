@@ -164,22 +164,23 @@ fileList.forEach((filepath) => {
   const output = reverse(input, { verbose: typeof opts.verbose === 'boolean' ? opts.verbose : false });
 
   fs.ensureDirSync(outdir);
+  output.then((output) => {
+    Object.keys(output).forEach((item) => {
+      const outfile = path.join(outdir, item);
 
-  Object.keys(output).forEach((item) => {
-    const outfile = path.join(outdir, item);
+      if (opts.verbose) {
+        console.log(`Writing to file ${outfile}`);
+      }
 
-    if (opts.verbose) {
-      console.log(`Writing to file ${outfile}`);
-    }
+      if (fs.existsSync(outfile)) {
+        console.error('File existed, skipping!');
+      } else {
+        let dir = outfile.substr(0, outfile.lastIndexOf("\\"));
+        fs.ensureDirSync(dir);
+        fs.writeFileSync(outfile, output[item], 'utf8');
+      }
 
-    if (fs.existsSync(outfile)) {
-      console.error('File existed, skipping!');
-    } else {
-      let dir = outfile.substr(0, outfile.lastIndexOf("\\"));
-      fs.ensureDirSync(dir);
-      fs.writeFileSync(outfile, output[item], 'utf8');
-    }
-
+    });
   });
 
 });
