@@ -175,7 +175,7 @@ fileList.forEach((filepath) => {
       if (fs.existsSync(outfile)) {
         console.error('File existed, skipping!');
       } else {
-        let dir = outfile.substr(0, outfile.lastIndexOf("\\"));
+        let dir = outfile.substr(0, outfile.lastIndexOf("/"));
         fs.ensureDirSync(dir);
         fs.writeFileSync(outfile, output[item], 'utf8');
       }
