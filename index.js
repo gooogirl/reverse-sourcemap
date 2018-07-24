@@ -33,7 +33,7 @@ module.exports = (input, options) => {
   
       response.sources.forEach((source) => {
         const contents = response.sourceContentFor(source);
-        map[path.normalize(source).replace(/^(\.\.[/\\])+/, '').replace(/[&#,+()?$~%'":*?<>{}]/g, '').replace(' ', '.')] = contents;
+        map[path.normalize(source).replace(/^(\.\.[/\\])+/, '').replace(/[|\&#,+()?$~%'":*?<>{}]/g, '').replace(' ', '.')] = contents;
       });
     } else if (options.verbose) {
       console.log('Not all sources were included in the sourcemap');
