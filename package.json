@@ -1,6 +1,6 @@
 {
   "name": "reverse-sourcemap",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Reverse engineering JavaScript and CSS sources from sourcemaps",
   "main": "index.js",
   "bin": "bin/reverse.js",
