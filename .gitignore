@@ -1,8 +1,10 @@
 *.lcov
 tmp
 .sass-cache
-
+.idea/
+yarn.lock
 # Logs
+.DS_Store
 logs
 *.log
 
